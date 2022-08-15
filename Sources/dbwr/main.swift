@@ -3,9 +3,15 @@ import JavaScriptKit
 var document = JSObject.global.document
 
 let keypressFunction = JSClosure { event in
-  print(event)
+  let event = event.first!.object!
 
-  return nil
+  if event.charCode.string == " " {
+    print(event)
+
+    return nil
+  } else {
+    return event.value
+  }
 }
 
 document.onkeypress = .object(keypressFunction)
