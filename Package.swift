@@ -14,11 +14,17 @@ let package = Package(
     ),
   ],
   dependencies: [
+    .package(
+      name: "JavaScriptKit",
+      url: "https://github.com/swiftwasm/JavaScriptKit.git",
+      from: "0.10.0"
+    ),
   ],
   targets: [
     .executableTarget(
       name: "dbwr",
       dependencies: [
+        "JavaScriptKit",
       ]
     ),
   ]
