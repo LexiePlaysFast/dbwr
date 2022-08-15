@@ -8472,7 +8472,7 @@ var wrapWASI = (wasiObject) => {
 
 // entrypoint/bundle.js
 var startWasiTask = async () => {
-  const response = await fetch("adb3598e44a73138.wasm");
+  const response = await fetch("3c7969b6e6cde3fd.wasm");
   const responseArrayBuffer = await response.arrayBuffer();
   let runtimeConstructor;
   try {
