@@ -25,6 +25,9 @@ let package = Package(
       name: "dbwr",
       dependencies: [
         "JavaScriptKit",
+      ],
+      resources: [
+        .copy("Resources/rando.css"),
       ]
     ),
   ]
