@@ -2,16 +2,18 @@ import JavaScriptKit
 
 var document = JSObject.global.document
 
-var cardElement = document.getElementById("card")
 var cardContainer = document.getElementById("cards")
 
 let keypressFunction = JSClosure { event in
   let event = event.first!.object!
 
   if event.charCode == 32 {
-    print(event)
+    print("Turn over a card!")
 
-    _ = cardContainer.appendChild(cardElement.cloneNode())
+    var card = document.createElement("div")
+    card.innerText = "A card!"
+
+    _ = cardContainer.appendChild(card)
 
     return nil
   } else {
