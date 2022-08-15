@@ -11,7 +11,7 @@ let keypressFunction = JSClosure { event in
   if event.charCode == 32 {
     print(event)
 
-    _ = cardContainer.appendChild(cardElement)
+    _ = cardContainer.appendChild(cardElement.cloneNode())
 
     return nil
   } else {
