@@ -1,3 +1,3 @@
 import JavaScriptKit
 
-print(JSObject.global.document.documentElement())
+print(JSObject.global.document)
