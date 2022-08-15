@@ -5,6 +5,14 @@ import PackageDescription
 
 let package = Package(
   name: "dbwr",
+  products: [
+    .executable(
+      name: "dbwr",
+      targets: [
+        "dbwr"
+      ]
+    ),
+  ],
   dependencies: [
   ],
   targets: [
