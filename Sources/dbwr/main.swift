@@ -2,13 +2,16 @@ import JavaScriptKit
 
 var document = JSObject.global.document
 
+var cardElement = document.getElementById("card")
+var cardContainer = document.getElementById("cards")
+
 let keypressFunction = JSClosure { event in
   let event = event.first!.object!
 
-  print(event.charCode)
-
-  if event.charCode.string == " " {
+  if event.charCode == 32 {
     print(event)
+
+    _ = cardContainer.appendElement(cardElement)
 
     return nil
   } else {
