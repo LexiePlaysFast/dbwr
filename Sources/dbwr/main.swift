@@ -5,6 +5,8 @@ var document = JSObject.global.document
 let keypressFunction = JSClosure { event in
   let event = event.first!.object!
 
+  print(event.charCode)
+
   if event.charCode.string == " " {
     print(event)
 
