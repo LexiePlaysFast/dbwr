@@ -1,3 +1,13 @@
+import LibRando
+
+let deck = LibRando
+  .game(named: "Nioh 2")!
+  .randomizers["Depths Randomizer"]!
+  .randomize(logicLevel: .enhanced)
+
+let floorData = deck
+  .map { $0.floorData }
+
 import JavaScriptKit
 
 var document = JSObject.global.document
@@ -11,7 +21,7 @@ let keypressFunction = JSClosure { event in
     print("Turn over a card!")
 
     var card = document.createElement("div")
-    card.innerText = "A card!"
+    card.innerText = .string(floorData.joined(separator: " "))
 
     _ = cardContainer.appendChild(card)
 

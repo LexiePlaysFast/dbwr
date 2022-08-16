@@ -19,12 +19,18 @@ let package = Package(
       url: "https://github.com/swiftwasm/JavaScriptKit.git",
       from: "0.10.0"
     ),
+    .package(
+      name: "UnderworldRandomizer",
+      url: "https://github.com/LexiePlaysFast/UnderworldRandomizer.git",
+      branch: "master"
+    ),
   ],
   targets: [
     .executableTarget(
       name: "dbwr",
       dependencies: [
         "JavaScriptKit",
+        .product(name: "LibRando", package: "UnderworldRandomizer"),
       ],
       resources: [
         .copy("Resources/rando.css"),
