@@ -1,0 +1,14 @@
+#bingoCard {
+    text-align: center;
+    margin: auto;
+}
+
+#bingoCard td {
+    width: 175px;
+    height: 175px;
+}
+
+#bingoCard th {
+    width: 175px;
+    height: 25px;
+}
