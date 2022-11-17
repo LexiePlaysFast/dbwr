@@ -1,34 +1,28 @@
 import LibRando
 
-let deck = LibRando
-  .game(named: "Nioh 2")!
-  .randomizers["Depths Randomizer"]!
-  .randomize(logicLevel: .enhanced)
+struct TestBingoCardSquare: BingoCardSquare {
 
-let floorData = deck
-  .map { $0.description }
+  let number: Int
+
+  var summary: String { "\(number)" }
+  let description = ""
+
+}
+
+var card: BingoCard! = BingoCard(squares: (1...25).map(TestBingoCardSquare.init))
 
 import JavaScriptKit
 
 var document = JSObject.global.document
 
-var cardContainer = document.getElementById("cards")
+var bingoCard = document.getElementById("bingoCore")
 
-let keypressFunction = JSClosure { event in
+let clickFunction = JSClosure { event in
   let event = event.first!.object!
 
-  if event.charCode == 32 {
-    print("Turn over a card!")
+  print(event)
 
-    var card = document.createElement("div")
-    card.innerText = .string(floorData.joined(separator: " "))
-
-    _ = cardContainer.appendChild(card)
-
-    return nil
-  } else {
-    return event.value
-  }
+  return event.value
 }
 
-document.onkeypress = .object(keypressFunction)
+bingoCard.onclick = .object(clickFunction)
