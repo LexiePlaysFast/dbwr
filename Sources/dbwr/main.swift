@@ -17,7 +17,10 @@ var document = JSObject.global.document
 
 var bingoCard = document.getElementById("bingoCore")
 
-print(bingoCard.getElementsByTagName("td"))
+var bingoCells = bingoCard.getElementsByTagName("td")
+var bingoCount: JSValue = bingoCells.length
+
+print(bingoCount)
 
 let clickFunction = JSClosure { event in
   let event = event.first!.object!
