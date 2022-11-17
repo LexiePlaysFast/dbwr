@@ -17,9 +17,7 @@ var document = JSObject.global.document
 
 var bingoCard = document.getElementById("bingoCore")
 
-for cell in JSArray(from: bingoCard.getElementsByTagName("td"))! {
-  print(cell)
-}
+print(bingoCard.getElementsByTagName("td"))
 
 let clickFunction = JSClosure { event in
   let event = event.first!.object!
