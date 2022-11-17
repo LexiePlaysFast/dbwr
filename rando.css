@@ -16,3 +16,20 @@
     height: 25px;
     margin: none;
 }
+
+#bingoCard th, #bingCard td {
+    border: 1px solid grey;
+    background: black;
+    color: white;
+}
+
+#bingoCard td:hover {
+    background: white;
+    color: black;
+}
+
+.marked {
+    background: DarkGreen;
+    color: black;
+}
+
