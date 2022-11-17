@@ -20,7 +20,8 @@ var bingoCard = document.getElementById("bingoCore")
 let clickFunction = JSClosure { event in
   let event = event.first!.object!
 
-  print(event)
+  let target = event.target
+  print(target)
 
   return event.value
 }
