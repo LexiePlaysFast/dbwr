@@ -17,7 +17,7 @@
     margin: none;
 }
 
-#bingoCard th, #bingCard td {
+#bingoCard th, #bingoCard td {
     border: 1px solid grey;
     background: black;
     color: white;
@@ -28,7 +28,7 @@
     color: black;
 }
 
-.marked {
+#bingoCard td.marked {
     background: DarkGreen;
     color: black;
 }
