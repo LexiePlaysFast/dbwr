@@ -33,7 +33,7 @@ let package = Package(
         .product(name: "LibRando", package: "UnderworldRandomizer"),
       ],
       resources: [
-        .copy("Resources/static"),
+        .copy("Resources/style"),
       ]
     ),
   ]
