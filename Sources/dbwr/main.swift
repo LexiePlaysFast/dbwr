@@ -6,7 +6,7 @@ let deck = LibRando
   .randomize(logicLevel: .enhanced)
 
 let floorData = deck
-  .map { $0.floorData }
+  .map { $0.description }
 
 import JavaScriptKit
 
