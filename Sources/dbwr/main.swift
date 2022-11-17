@@ -17,13 +17,17 @@ var document = JSObject.global.document
 
 var bingoCard = document.getElementById("bingoCore")
 
+for cell in JSArray(from: bingoCard.getElementsByTagName("td"))! {
+  print(cell)
+}
+
 let clickFunction = JSClosure { event in
   let event = event.first!.object!
 
   let target = event.target
   print(target)
 
-  return event.value
+  return nil
 }
 
 bingoCard.onclick = .object(clickFunction)
