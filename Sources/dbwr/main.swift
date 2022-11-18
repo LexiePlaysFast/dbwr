@@ -64,4 +64,4 @@ let hoverFunction = JSClosure { event in
 }
 
 bingoCore.onclick = .object(clickFunction)
-bingoCore.onmousenter = .object(hoverFunction)
+bingoCore.onmouseover = .object(hoverFunction)
