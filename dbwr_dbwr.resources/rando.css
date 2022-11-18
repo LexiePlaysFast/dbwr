@@ -1,8 +1,11 @@
 #bingoCard {
     text-align: center;
-    margin: auto;
     border-spacing: 0;
     border-collapse: collapse;
+}
+
+#bingoCard, #bingoData {
+    display: inline-block;
 }
 
 #bingoCard td {
@@ -21,6 +24,11 @@
     border: 1px solid grey;
     background: black;
     color: white;
+}
+
+#bingoCard.completed th {
+    background: DarkGreen;
+    color: black;
 }
 
 #bingoCard td:hover {
