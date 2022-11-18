@@ -4,8 +4,16 @@
     border-collapse: collapse;
 }
 
+#bingo {
+    display: table-row;
+}
+
 #bingoCard, #bingoData {
-    display: inline-block;
+    display: table-cell;
+}
+
+#bingoData {
+    padding: 2em;
 }
 
 #bingoCard td {
