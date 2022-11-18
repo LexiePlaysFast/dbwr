@@ -49,3 +49,6 @@
     color: black;
 }
 
+#bingoData p {
+    width: 650px;
+}
