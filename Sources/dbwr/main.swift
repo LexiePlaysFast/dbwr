@@ -15,9 +15,10 @@ import JavaScriptKit
 
 var document = JSObject.global.document
 
-var bingoCard = document.getElementById("bingoCore")
+var bingoCore = document.getElementById("bingoCore")
+var bingoCard = document.getElementById("bingoCard")
 
-var bingoCells = bingoCard.getElementsByTagName("td")
+var bingoCells = bingoCore.getElementsByTagName("td")
 
 for index in 0..<25 {
   bingoCells
@@ -35,10 +36,14 @@ let clickFunction = JSClosure { event in
     let square: String = target.getAttribute!("data-square").string!
     if card.mark(square: square) {
       target.className = "marked"
+
+      if BingoScorer.defaultScorer.score(card, using: .lines(1)) == .complete {
+        bingoCard.className = "completed"
+      }
     }
   }
 
   return nil
 }
 
-bingoCard.onclick = .object(clickFunction)
+bingoCore.onclick = .object(clickFunction)

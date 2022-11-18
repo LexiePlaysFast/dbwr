@@ -26,6 +26,11 @@
     color: white;
 }
 
+#bingoCard.completed th {
+    background: DarkGreen;
+    color: black;
+}
+
 #bingoCard td:hover {
     background: white;
     color: black;
