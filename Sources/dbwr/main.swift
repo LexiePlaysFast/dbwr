@@ -51,7 +51,7 @@ let hoverFunction = JSClosure { event in
   let event = event.first!.object!
 
   let target = event.relatedTarget.object!
-  print(target)
+  print(target.tagName.string!)
 
   if target.tagName.string! == "td" {
     let square = target.getAttribute!("data-square").string!
