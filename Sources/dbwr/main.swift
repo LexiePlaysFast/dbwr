@@ -20,6 +20,13 @@ var bingoCard = document.getElementById("bingoCore")
 var bingoCells = bingoCard.getElementsByTagName("td")
 var bingoCount: JSValue = bingoCells.length
 
+for index in 0..<25 {
+  bingoCells
+    .item(index)
+    .object
+    .map { $0.innerText = JSValue.string(card.squares[index].summary) }
+}
+
 print(bingoCount)
 
 let clickFunction = JSClosure { event in
