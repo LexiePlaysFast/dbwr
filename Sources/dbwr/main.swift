@@ -1,14 +1,5 @@
 import LibRando
 
-struct TestBingoCardSquare: BingoCardSquare {
-
-  let number: Int
-
-  var summary: String { "\(number)" }
-  let description = ""
-
-}
-
 var card: BingoCard! = LibRando
   .game(named: "Nioh 2")?
   .bingomizers["NG+"]?
@@ -53,7 +44,7 @@ let clickFunction = JSClosure { event in
 let hoverFunction = JSClosure { event in
   let event = event.first!.object!
 
-  let target = event.relatedTarget.object!
+  let target = event.target.object!
 
   if target.tagName.string == "TD" {
     let square = target.getAttribute!("data-square").string!
