@@ -50,7 +50,7 @@ let clickFunction = JSClosure { event in
 let hoverFunction = JSClosure { event in
   let event = event.first!.object!
 
-  let target = event.target.object!
+  let target = event.relatedTarget.object!
 
   if target.tagName.string! == "td" {
     let square = target.getAttribute!("data-square").string!
