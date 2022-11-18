@@ -17,6 +17,7 @@ var document = JSObject.global.document
 
 var bingoCore = document.getElementById("bingoCore")
 var bingoCard = document.getElementById("bingoCard")
+var bingoData = document.getElementById("bingoData")
 
 var bingoCells = bingoCore.getElementsByTagName("td")
 
@@ -46,4 +47,21 @@ let clickFunction = JSClosure { event in
   return nil
 }
 
+let hoverFunction = JSClosure { event in
+  let event = event.first!.object!
+
+  let target = event.target.object!
+
+  if target.tagName.string! == "td" {
+    let square = target.getAttribute!("data-square").string!
+    let bingoSquare = card.square(named: square)!
+
+    bingoData.getElementsByTagName("h2").item(0).object.map { $0.innerText = JSValue.string(bingoSquare.summary) }
+    bingoData.getElementsByTagName("p").item(0).object.map { $0.innerText = JSValue.string(bingoSquare.description) }
+  }
+
+  return event.value
+}
+
 bingoCore.onclick = .object(clickFunction)
+bingoCore.onmousenter = .object(hoverFunction)
