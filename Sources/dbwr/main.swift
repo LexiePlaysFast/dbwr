@@ -9,7 +9,10 @@ struct TestBingoCardSquare: BingoCardSquare {
 
 }
 
-var card: BingoCard! = BingoCard(squares: (1...25).map(TestBingoCardSquare.init))
+var card: BingoCard! = LibRando
+  .game(named: "Nioh 2")?
+  .bingomizers["NG+"]?
+  .makeCard()
 
 import JavaScriptKit
 
