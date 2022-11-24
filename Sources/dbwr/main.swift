@@ -10,6 +10,7 @@ let state: UUID
 
 if let parsed = parse(urlHash: hash) {
   state = parsed.0
+  print(parsed.1)
 } else {
   state = UUID()
 }
@@ -22,7 +23,6 @@ var card: BingoCard! = LibRando
   .game(named: "Nioh 2")?
   .bingomizers["NG+"]?
   .makeCard(using: &generator)
-
 
 var document = JSObject.global.document
 
@@ -52,7 +52,7 @@ let clickFunction = JSClosure { event in
     if card.mark(square: square) {
       target.className = "marked"
 
-      if BingoScorer.defaultScorer.score(card, using: .lines(1)) == .complete {
+      if BingoScorer.defaultScorer.score(card, using: .blackout) == .complete {
         bingoCard.className = "completed"
       }
     }
