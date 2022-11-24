@@ -29,9 +29,11 @@ card.mark(indices: initialMarks)
 var document = JSObject.global.document
 
 var permalink = document.getElementById("permalink")
+var clearlink = document.getElementById("clearlink")
 
 window.location.hash = JSValue.string(urlHash(boardUUID: state, selected: card.marked))
 permalink.href = window.location.href
+clearlink.href = JSValue.string(String(window.location.href.string!.split(separator: "?").first!))
 
 var bingoCore = document.getElementById("bingoCore")
 var bingoCard = document.getElementById("bingoCard")
