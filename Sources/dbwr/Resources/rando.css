@@ -59,6 +59,7 @@ footer {
     left: 0;
     right: 0;
     border-top: 1px solid black;
-    height: 24px;
+    height: 28px;
     background-color: white;
+    text-align: center;
 }

@@ -26,6 +26,9 @@ var card: BingoCard! = LibRando
 
 var document = JSObject.global.document
 
+var permalink = document.getElementById("permalink")
+permalink.href = window.location.href
+
 var bingoCore = document.getElementById("bingoCore")
 var bingoCard = document.getElementById("bingoCard")
 var bingoData = document.getElementById("bingoData")
