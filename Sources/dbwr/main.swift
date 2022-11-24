@@ -17,7 +17,7 @@ var document = JSObject.global.document
 print(document.URL.string)
 
 var window = JSObject.global.window
-window.location.hash = JSValue.string("#/\(state)/")
+window.location.hash = JSValue.string("#/\(state)")
 
 var bingoCore = document.getElementById("bingoCore")
 var bingoCard = document.getElementById("bingoCard")
