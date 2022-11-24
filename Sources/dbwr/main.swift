@@ -1,7 +1,7 @@
 import Foundation
 import LibSeeded
 
-let state = UUID()
+let state = UUID(uuidString: "4A062CFB-2408-4109-A1FA-C0052796EC1B")!
 var generator = UUIDSeededRandomGenerator(state: state)
 
 import LibRando
@@ -14,6 +14,7 @@ var card: BingoCard! = LibRando
 import JavaScriptKit
 
 var document = JSObject.global.document
+print(document.keys())
 
 var bingoCore = document.getElementById("bingoCore")
 var bingoCard = document.getElementById("bingoCard")
