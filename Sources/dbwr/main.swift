@@ -7,15 +7,15 @@ import JavaScriptKit
 var window = JSObject.global.window
 let hash = window.location.hash.string!
 let state: UUID
+let initialMarks: IndexSet
 
 if let parsed = parse(urlHash: hash) {
   state = parsed.0
-  print(parsed.1)
+  initialMarks = parsed.1
 } else {
   state = UUID()
+  initialMarks = IndexSet()
 }
-
-window.location.hash = JSValue.string("#/\(state)")
 
 var generator = UUIDSeededRandomGenerator(state: state)
 
@@ -24,9 +24,13 @@ var card: BingoCard! = LibRando
   .bingomizers["NG+"]?
   .makeCard(using: &generator)
 
+card.mark(indices: initialMarks)
+
 var document = JSObject.global.document
 
 var permalink = document.getElementById("permalink")
+
+window.location.hash = JSValue.string(urlHash(boardUUID: state, selected: card.marked))
 permalink.href = window.location.href
 
 var bingoCore = document.getElementById("bingoCore")
@@ -39,7 +43,13 @@ for index in 0..<25 {
   bingoCells
     .item(index)
     .object
-    .map { $0.innerText = JSValue.string(card.squares[index].summary) }
+    .map {
+      $0.innerText = JSValue.string(card.squares[index].summary)
+
+      if card.marked.contains(index) {
+        $0.className = "marked"
+      }
+    }
 }
 
 let clickFunction = JSClosure { event in
@@ -56,7 +66,8 @@ let clickFunction = JSClosure { event in
         bingoCard.className = "completed"
       }
 
-      print(render(indices: card.marked))
+      window.location.hash = JSValue.string(urlHash(boardUUID: state, selected: card.marked))
+      permalink.href = window.location.href
     }
   }
 

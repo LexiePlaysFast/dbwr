@@ -43,3 +43,11 @@ func render(indices: IndexSet) -> String {
     }
     .reduce("", +)
 }
+
+func urlHash(boardUUID: UUID, selected: IndexSet) -> String {
+  let boardID = "#/\(boardUUID)"
+
+  return selected.count == 0
+    ? boardID
+    : "\(boardID)?marked=\(render(indices: selected))"
+}
