@@ -52,6 +52,10 @@ for index in 0..<25 {
     }
 }
 
+if BingoScorer.defaultScorer.score(card, using: .blackout) == .complete {
+  bingoCard.className = "completed"
+}
+
 let clickFunction = JSClosure { event in
   let event = event.first!.object!
 
