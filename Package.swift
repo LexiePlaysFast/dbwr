@@ -31,6 +31,7 @@ let package = Package(
       dependencies: [
         "JavaScriptKit",
         .product(name: "LibRando", package: "UnderworldRandomizer"),
+        .product(name: "LibSeeded", package: "UnderworldRandomizer"),
       ],
       resources: [
         .copy("Resources/rando.css"),
