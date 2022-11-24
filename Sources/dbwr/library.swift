@@ -28,10 +28,18 @@ func parse(urlHash: String) -> (UUID, IndexSet)? {
       let markedString = String(markedParameter.dropFirst(7))
       markedIndices = markedString
         .reduce(into: IndexSet()) { idxSet, character in
-          idxSet.insert(indexString.index(of: character)!.utf16Offset(in: indexString))
+          idxSet.insert(indexString.firstIndex(of: character)!.utf16Offset(in: indexString))
         }
     }
   }
 
   return (uuid, markedIndices)
+}
+
+func render(indices: IndexSet) -> String {
+  indices
+    .map {
+      String(indexString[String.Index(utf16Offset: $0, in: indexString)])
+    }
+    .reduce("", +)
 }
