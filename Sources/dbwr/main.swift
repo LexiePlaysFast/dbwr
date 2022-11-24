@@ -1,23 +1,31 @@
 import Foundation
 import LibSeeded
-
-let state = UUID(uuidString: "4A062CFB-2408-4109-A1FA-C0052796EC1B")!
-var generator = UUIDSeededRandomGenerator(state: state)
-
 import LibRando
+
+import JavaScriptKit
+
+var window = JSObject.global.window
+let hash = window.location.hash.string!
+let state: UUID
+
+
+if hash == "" {
+  state = UUID()
+} else {
+  state = UUID(uuidString: "4A062CFB-2408-4109-A1FA-C0052796EC1B")!
+}
+
+window.location.hash = JSValue.string("#/\(state)")
+
+var generator = UUIDSeededRandomGenerator(state: state)
 
 var card: BingoCard! = LibRando
   .game(named: "Nioh 2")?
   .bingomizers["NG+"]?
   .makeCard(using: &generator)
 
-import JavaScriptKit
 
 var document = JSObject.global.document
-print(document.URL.string)
-
-var window = JSObject.global.window
-window.location.hash = JSValue.string("#/\(state)")
 
 var bingoCore = document.getElementById("bingoCore")
 var bingoCard = document.getElementById("bingoCard")
