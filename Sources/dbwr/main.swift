@@ -16,6 +16,9 @@ import JavaScriptKit
 var document = JSObject.global.document
 print(document.URL.string)
 
+var window = JSObject.global.window
+print(window.location.hash.string)
+
 var bingoCore = document.getElementById("bingoCore")
 var bingoCard = document.getElementById("bingoCard")
 var bingoData = document.getElementById("bingoData")
