@@ -21,7 +21,7 @@ var generator = UUIDSeededRandomGenerator(state: state)
 
 var card: BingoCard! = LibRando
   .game(named: "Nioh 2")?
-  .bingomizers["NG+"]?
+  .bingomizers["NG"]?
   .makeCard(using: &generator)
 
 card.mark(indices: initialMarks)
