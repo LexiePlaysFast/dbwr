@@ -14,8 +14,6 @@ var card: BingoCard! = LibRando
 import JavaScriptKit
 
 var document = JSObject.global.document
-print(document.URL.stringValue())
-print(document.baseURI.stringValue())
 
 var bingoCore = document.getElementById("bingoCore")
 var bingoCard = document.getElementById("bingoCard")
