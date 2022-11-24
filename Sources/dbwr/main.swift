@@ -8,11 +8,10 @@ var window = JSObject.global.window
 let hash = window.location.hash.string!
 let state: UUID
 
-
-if hash == "" {
-  state = UUID()
+if let parsed = parse(urlHash: hash) {
+  state = parsed.0
 } else {
-  state = UUID(uuidString: "4A062CFB-2408-4109-A1FA-C0052796EC1B")!
+  state = UUID()
 }
 
 window.location.hash = JSValue.string("#/\(state)")
