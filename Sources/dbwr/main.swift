@@ -78,6 +78,29 @@ let clickFunction = JSClosure { event in
   return nil
 }
 
+let keyPressFunction = JSClosure { event in
+  let event = event.first!.object!
+
+  if
+    let key = event.key.string,
+    key.length == 1,
+    let index = indexString.firstIndex(of: key.uppercased.first!)?.utf16Offset(in: indexString)
+  {
+    if card.mark(indices: IndexSet(integer: index)) {
+      bingoCells.item(index).object?.className = "marked"
+
+      if BingoScorer.defaultScorer.score(card, using: .blackout) == .complete {
+        bingoCard.className = "completed"
+      }
+
+      window.location.hash = JSValue.string(urlHash(boardUUID: state, selected: card.marked))
+      permalink.href = window.location.href
+    }
+  }
+
+  return nil
+}
+
 let hoverFunction = JSClosure { event in
   let event = event.first!.object!
 
@@ -96,3 +119,4 @@ let hoverFunction = JSClosure { event in
 
 bingoCore.onclick = .object(clickFunction)
 bingoCore.onmouseover = .object(hoverFunction)
+bingoCore.onkeypress = .object(keyPressFunction)

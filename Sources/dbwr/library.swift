@@ -1,6 +1,6 @@
 import Foundation
 
-fileprivate let indexString = "ABCDEFGHIJKLMNOPQRSTUVWYZ"
+let indexString = "ABCDEFGHIJKLMNOPQRSTUVWYZ"
 
 func parse(urlHash: String) -> (UUID, IndexSet)? {
   guard
