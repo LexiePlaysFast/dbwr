@@ -9,33 +9,28 @@ func parse(urlHash: String) -> (UUID, IndexSet)? {
     return nil
   }
 
-  let fragments = urlHash
-    .dropFirst(2)
-    .split(separator: "?", maxSplits: 2)
-
   guard
-    let path = fragments.first
+    let urlComponents = URLComponents(string: String(urlHash.dropFirst(2)))
   else {
     return nil
   }
 
   guard
-    let uuid = UUID(uuidString: String(path))
+    let uuid = UUID(uuidString: urlComponents.path)
   else {
     return nil
   }
 
   var markedIndices = IndexSet()
 
-  if fragments.count == 2 {
-    let markedParameter = fragments.last!
-    if markedParameter.hasPrefix("marked=") {
-      let markedString = String(markedParameter.dropFirst(7))
-      markedIndices = markedString
-        .reduce(into: IndexSet()) { idxSet, character in
-          idxSet.insert(indexString.firstIndex(of: character)!.utf16Offset(in: indexString))
-        }
-    }
+  if
+    let marked = urlComponents.queryItems?.first(where: { $0.name == "marked" }),
+    let markedString = marked.value
+  {
+    markedIndices = markedString
+      .reduce(into: IndexSet()) { idxSet, character in
+        idxSet.insert(indexString.firstIndex(of: character)!.utf16Offset(in: indexString))
+      }
   }
 
   return (uuid, markedIndices)
