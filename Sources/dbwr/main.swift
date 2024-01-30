@@ -85,9 +85,12 @@ let keyPressFunction = JSClosure { event in
   if
     let key = event.key.string,
     key.length == 1,
+    event.altKey.boolean == false,
+    event.ctrlKey.boolean == false,
+    event.metaKey.boolean == false,
     let index = indexString.firstIndex(of: key.uppercased.first!)?.utf16Offset(in: indexString)
   {
-    print("key")
+    print("key: \(key)")
 
     if card.mark(indices: IndexSet(integer: index)) {
       bingoCells.item(index).object?.className = "marked"
@@ -122,4 +125,4 @@ let hoverFunction = JSClosure { event in
 
 bingoCore.onclick = .object(clickFunction)
 bingoCore.onmouseover = .object(hoverFunction)
-document.onkeydown = .object(keyPressFunction)
+document.onkeypress = .object(keyPressFunction)
