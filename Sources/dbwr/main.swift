@@ -79,7 +79,6 @@ let clickFunction = JSClosure { event in
 }
 
 let keyPressFunction = JSClosure { event in
-  print("keypress")
   let event = event.first!.object!
 
   if
@@ -90,7 +89,6 @@ let keyPressFunction = JSClosure { event in
     event.metaKey.boolean == false,
     let index = indexString.firstIndex(of: key.uppercased.first!)?.utf16Offset(in: indexString)
   {
-    print("key: \(key)")
 
     if card.mark(indices: IndexSet(integer: index)) {
       bingoCells.item(index).object?.className = "marked"
