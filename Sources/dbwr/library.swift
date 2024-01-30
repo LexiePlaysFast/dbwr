@@ -14,8 +14,13 @@ func parse(urlHash: String) -> (UUID, IndexSet)? {
     .split(separator: "?", maxSplits: 2)
 
   guard
-    let uuidString = fragments.first,
-    let uuid = UUID(uuidString: String(uuidString))
+    let path = fragments.first
+  else {
+    return nil
+  }
+
+  guard
+    let uuid = UUID(uuidString: String(path))
   else {
     return nil
   }
