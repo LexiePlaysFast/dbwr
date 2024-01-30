@@ -105,7 +105,6 @@ let keyPressFunction = JSClosure { event in
 }
 
 let hoverFunction = JSClosure { event in
-  print("test")
   let event = event.first!.object!
 
   let target = event.target.object!
@@ -123,4 +122,4 @@ let hoverFunction = JSClosure { event in
 
 bingoCore.onclick = .object(clickFunction)
 bingoCore.onmouseover = .object(hoverFunction)
-bingoCore.onkeydown = .object(keyPressFunction)
+document.onkeydown = .object(keyPressFunction)
