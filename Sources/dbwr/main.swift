@@ -105,6 +105,7 @@ let keyPressFunction = JSClosure { event in
 }
 
 let hoverFunction = JSClosure { event in
+  print("test")
   let event = event.first!.object!
 
   let target = event.target.object!
