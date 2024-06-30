@@ -9,11 +9,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Bundle
-      uses: swiftwasm/swiftwasm-action@v5.6
+      uses: swiftwasm/swiftwasm-action@v5.9
       with:
         shell-action: carton bundle --custom-index-page static/index.html
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./Bundle
