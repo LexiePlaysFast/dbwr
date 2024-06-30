@@ -35,6 +35,7 @@ let package = Package(
       ],
       resources: [
         .copy("Resources/rando.css"),
+        .copy("Resources/v0/"),
       ]
     ),
   ]
