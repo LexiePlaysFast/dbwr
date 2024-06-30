@@ -7,11 +7,14 @@ jobs:
     name: Deploy artifacts
     runs-on: ubuntu-20.04
     steps:
+    - name: Install Prerequesites
+      run: sudo apt-get install -y binaryen
     - uses: actions/checkout@v2
-    - name: Bundle
-      uses: swiftwasm/swiftwasm-action@v5.9
+    - uses: swiftwasm/setup-swiftwasm@v1
       with:
-        shell-action: carton bundle --custom-index-page static/index.html
+        swift-version: "wasm-5.10.0-RELEASE"
+    - name: Bundle
+      run: swift run carton bundle --custom-index-page static/index.html
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v4
       with:
