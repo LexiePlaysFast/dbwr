@@ -17,7 +17,7 @@ let package = Package(
     .package(
       name: "JavaScriptKit",
       url: "https://github.com/swiftwasm/JavaScriptKit.git",
-      from: "0.10.0"
+      from: "0.19.0"
     ),
     .package(
       name: "UnderworldRandomizer",
