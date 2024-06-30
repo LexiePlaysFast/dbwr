@@ -1,4 +1,4 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.9
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -15,12 +15,10 @@ let package = Package(
   ],
   dependencies: [
     .package(
-      name: "JavaScriptKit",
       url: "https://github.com/swiftwasm/JavaScriptKit.git",
       from: "0.19.0"
     ),
     .package(
-      name: "UnderworldRandomizer",
       url: "https://github.com/LexiePlaysFast/UnderworldRandomizer.git",
       branch: "master"
     ),
