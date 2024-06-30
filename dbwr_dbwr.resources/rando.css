@@ -1,0 +1,65 @@
+#bingoCard {
+    text-align: center;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+#bingo {
+    display: table-row;
+}
+
+#bingoCard, #bingoData {
+    display: table-cell;
+}
+
+#bingoData {
+    padding: 2em;
+}
+
+#bingoCard td {
+    width: 175px;
+    height: 175px;
+    margin: none;
+}
+
+#bingoCard th {
+    width: 175px;
+    height: 50px;
+    margin: none;
+}
+
+#bingoCard th, #bingoCard td {
+    border: 1px solid grey;
+    background: black;
+    color: white;
+}
+
+#bingoCard.completed th {
+    background: DarkGreen;
+    color: black;
+}
+
+#bingoCard td:hover {
+    background: white;
+    color: black;
+}
+
+#bingoCard td.marked {
+    background: DarkGreen;
+    color: black;
+}
+
+#bingoData p {
+    width: 650px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid black;
+    height: 28px;
+    background-color: white;
+    text-align: center;
+}
